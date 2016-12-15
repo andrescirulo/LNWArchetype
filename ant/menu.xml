@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+
+<!--Menu para llamar al archivo que compila el proyecto-->
+
+<project name="menuAplicaciones" basedir="c:/development/eclipse/workspace" default="menuPrincipal">
+
+	<property name="project" value="${artifactId}" />
+	<property name="eclipse.workspace" value="c:/development/eclipse/workspace" />
+
+	<!--Menu-->
+	<target name="menuPrincipal">
+		<antmenu title="${project}" stylesheet="${project}/ant/menu.style">
+			<label>Makers</label>
+			<button label="Run CaseMaker" target="runCaseMaker" />
+		</antmenu>
+	</target>
+
+
+	<target name="runCaseMaker">
+		<ant antfile="${basedir}/${project}/ant/build.xml" dir="${basedir}" target="runCaseMaker" />
+	</target>
+	
+	<!-- ANTMENU-->
+	<path id="antform.cp">
+		<fileset dir="${basedir}/LNWFramework_v3/lib" includes="antform-2.0.jar" />
+	</path>
+	<taskdef name="antform" classname="com.sardak.antform.AntForm" classpathref="antform.cp" />
+	<taskdef name="antmenu" classname="com.sardak.antform.AntMenu" classpathref="antform.cp" />
+
+	<target name="exit">
+	</target>
+	
+</project>

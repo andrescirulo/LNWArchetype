@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/target/${projectName}</rootDir>
+    <workDir>/work</workDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <mavenClasspath>true</mavenClasspath>
+    <webPath>${projectName}</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/LNWFramework_v3/lib/jsinterop-annotations-1.0.0-20160417.160707-1.jar</webClassPathEntry>
+        <webClassPathEntry>/LNWFramework_v3/target/classes</webClassPathEntry>
+        <webClassPathEntry>/LNWFramework_v3/target/test-classes</webClassPathEntry>
+    </webClassPathEntries>
+</tomcatProjectProperties>

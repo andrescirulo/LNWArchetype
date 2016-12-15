@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+
+<!-- Archivo de ANT que permite realizar diversas actividades con el proyecto -->
+
+<project name="makeFile" default="runCaseMaker">
+
+	<property file="${project}/ant/common.properties" />
+	
+	<property name="ant.build.javac.source" value="1.7"/>
+	<property name="ant.build.javac.target" value="1.7"/>
+
+	<!-- Seteamos una variable que contiene todo lo necesario para usar como CLASSPATH para compilar -->
+	<path id="project.class.path">
+		<fileset dir="${LNWFramework.lib.dir}" />
+		<fileset dir="${LNWFramework.root.dir}/tools/libs" />
+		<fileset dir="${project.lib.dir}" />
+	</path>
+	<path id="LNW.class.path">
+		<fileset dir="${LNWFramework.lib.dir}" excludes="${LNWFramework.jar.name},gwt/gwt-benchmark-viewer.jar" />
+		<fileset dir="${LNWFramework.root.dir}/tools/libs" />
+	</path>
+
+	<!-- Declaramos donde encontrar localmente en el .jar el DTD en vez de buscarlo en Internet -->
+	<xmlcatalog id="dtds" classpathref="runtime.cp">
+		<dtd publicId="-//SPRING//DTD BEAN 2.0//EN" location="org/springframework/beans/factory/xml/spring-beans-2.0.dtd" />
+	</xmlcatalog>
+
+
+
+	<!--Makers-->
+	<target name="runCaseMaker">
+		<java classname="net.latin.server.utils.caseMaker.ui.LnwCaseMakerGui" fork="true">
+			<jvmarg value="-Xmx512M" />
+			<classpath path="${project.root.dir}/classes" />
+			<classpath path="${LNWFramework.root.dir}/WEB-INF/classes" />
+			<classpath refid="runtime.cp" />
+			<arg value="${maker.project.projectPath}" />
+			<arg value="${maker.project.mockPath}" />
+			<arg value="${maker.project.imageFolderPath}" />
+		</java>
+		<antcall target="exit" />
+	</target>
+
+	<target name="exit">
+
+	</target>
+
+</project>
+
+
+
+
+
+

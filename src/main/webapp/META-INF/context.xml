@@ -1,0 +1,7 @@
+<Context path="/${projectName.toLowerCase()}">
+	<ResourceLink name="jdbc/${jndiName}"
+	                    global="jdbc/${jndiName}"
+	                    auth="Container"
+	                    type="javax.sql.DataSource" /> 
+	
+</Context>
